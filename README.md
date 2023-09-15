@@ -1,21 +1,35 @@
-# Kernel Planckster for Satellite Data Augmentation
-
-*Data Systems Group @MPI-SWS*
+# Starter template for a clean architecture python project
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
-
-## Features
 
 
 ## Installation
 
 
-## Developer Tips
+## Features
 
-### Database Models
+
+## Development
+
+### Setup
+
+```bash
+# AT THE ROOT OF THE PROJECT
+
+# OPTIONAL: create a virtual environment and activate it
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install poetry
+pip install poetry
+
+# Install dependencies
+poetry install
+```
 
 ### Autogenerate Alembic Migrations
+
+Using docker containers to spin up an SQL database, you can autogenerate migrations with Alembic:
 
 ```bash
 cd tests
@@ -30,22 +44,35 @@ cd tests
 docker compose down
 ```
 
-You can access `adminer` at `http://localhost:8080` to check the database. The credentials are:
+Make sure to fix any errors given by the alembic commands above before executing the next one and commiting the changes.
+
+
+### Accessing the database
+
+You can access `<DB explorer>` at `http://localhost:<PORT>` to check the database. The credentials are:
 ```
-System: PostgreSQL
-Server: kp-db
-Username: postgres
-Password: postgres
-Database: kp-test
+System:
+Server:
+Username:
+Password:
+Database:
 ```
+
+### Pull Requests
 
 Before submitting a pull request, please:
 
-1. Run mypy, at the root of the project, and fix all of the errors:
+1. Run mypy, at the root of the project, and fix all type errors:
 ```bash
 poetry run mypy .
 ```
+
 2. Run black, at the root of the project
 ```bash
 poetry run black .
+```
+
+3. Run pytest, at the root of the project, and fix all the errors:
+```bash
+poetry run pytest -s
 ```
