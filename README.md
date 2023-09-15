@@ -62,17 +62,19 @@ Database:
 
 Before submitting a pull request, please:
 
-1. Run mypy, at the root of the project, and fix all type errors:
+1. Run pytest, at the root of the project, and fix all the errors:
+```bash
+poetry run pytest -s
+```
+
+2. Run mypy, at the root of the project, and fix all type errors:
 ```bash
 poetry run mypy .
 ```
 
-2. Run black, at the root of the project
+3. Run black, at the root of the project
 ```bash
 poetry run black .
 ```
 
-3. Run pytest, at the root of the project, and fix all the errors:
-```bash
-poetry run pytest -s
-```
+
