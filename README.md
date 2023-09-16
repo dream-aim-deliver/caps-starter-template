@@ -25,7 +25,17 @@ pip install poetry
 
 # Install dependencies
 poetry install
+
+# Setup pre-commit
+pre-commit install
+pre-commit run --all-files
+
+# Create a .env file
+cp .env.example .env
+
+# Set up environment variables for pytest in pyproject.toml as needed
 ```
+
 
 ### Autogenerate Alembic Migrations
 
