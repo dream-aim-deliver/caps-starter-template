@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "caps-starter-template"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Template Repository for Clean Architecture Python Project"
+authors = ["maany <imptodefeat@gmail.com>", "Luis Alejandro Bordo García <bgluiszz@gmail.com>"]
+license = "MIT"
 readme = "README.md"
 packages = [{include = "lib"}]
 
@@ -32,6 +33,9 @@ env = [
     "THIS_PROJECT_RDBMS_USERNAME=sqldbms",
     "THIS_PROJECT_RDBMS_PASSWORD=sqldbms",
 ]
+pythonpath = [
+  "."
+]
 
 
 [build-system]
@@ -41,19 +45,17 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
 python_version = "3.10"
-warn_return_any = true
-warn_unused_configs = true
+strict = true
 ignore_missing_imports = true
 plugins = ["pydantic.mypy"]
+explicit_package_bases = true
+exclude = [
+  "tests/types",
+]
 
 [[tool.mypy.overrides]]
 module = "alembic.env"
 ignore_errors = true
-
-[[tool.mypy.overrides]]
-module = "tests.*"
-ignore_errors = true
-
 
 [tool.black]
 line-length = 120
